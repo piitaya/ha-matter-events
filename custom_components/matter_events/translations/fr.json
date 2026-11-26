@@ -1,0 +1,47 @@
+{
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Déjà configuré."
+    },
+    "step": {
+      "user": {
+        "description": "Ajoute des entités d'événement bouton standard aux interrupteurs Matter, et une entité de rotation pour chaque couche des molettes Matter, comme l'IKEA BILRESA."
+      }
+    }
+  },
+  "entity": {
+    "event": {
+      "button": {
+        "name": "Appui {layer}",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "initial_press": "Appuyé",
+              "switch_latched": "Interrupteur basculé"
+            }
+          }
+        }
+      },
+      "rotary": {
+        "name": "Rotation {layer}",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "rotation": "Rotation"
+            }
+          },
+          "direction": {
+            "name": "Sens",
+            "state": {
+              "clockwise": "Horaire",
+              "counter_clockwise": "Antihoraire"
+            }
+          },
+          "steps": {
+            "name": "Crans"
+          }
+        }
+      }
+    }
+  }
+}

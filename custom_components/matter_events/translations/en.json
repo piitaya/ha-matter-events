@@ -1,0 +1,47 @@
+{
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Already configured."
+    },
+    "step": {
+      "user": {
+        "description": "Add standard button event entities to the Matter switches, and one rotary event entity for each layer of the Matter scroll wheels, such as the IKEA BILRESA."
+      }
+    }
+  },
+  "entity": {
+    "event": {
+      "button": {
+        "name": "Press {layer}",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "initial_press": "Pressed",
+              "switch_latched": "Switch latched"
+            }
+          }
+        }
+      },
+      "rotary": {
+        "name": "Rotation {layer}",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "rotation": "Rotation"
+            }
+          },
+          "direction": {
+            "name": "Direction",
+            "state": {
+              "clockwise": "Clockwise",
+              "counter_clockwise": "Counter-clockwise"
+            }
+          },
+          "steps": {
+            "name": "Steps"
+          }
+        }
+      }
+    }
+  }
+}
