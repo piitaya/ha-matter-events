@@ -22,8 +22,39 @@
           }
         }
       },
+      "button_single": {
+        "name": "Appui",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "initial_press": "Appuyé",
+              "switch_latched": "Interrupteur basculé"
+            }
+          }
+        }
+      },
       "rotary": {
         "name": "Rotation {layer}",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "rotation": "Rotation"
+            }
+          },
+          "direction": {
+            "name": "Sens",
+            "state": {
+              "clockwise": "Horaire",
+              "counter_clockwise": "Antihoraire"
+            }
+          },
+          "steps": {
+            "name": "Crans"
+          }
+        }
+      },
+      "rotary_single": {
+        "name": "Rotation",
         "state_attributes": {
           "event_type": {
             "state": {

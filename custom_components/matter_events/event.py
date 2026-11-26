@@ -1,5 +1,6 @@
 """Press and rotation event entities for Matter switches."""
 
+from collections import Counter
 from dataclasses import dataclass
 from typing import Any, cast
 
@@ -171,9 +172,14 @@ async def async_setup_entry(
                     entities.append(
                         MatterButtonEventEntity(client, device_id, device, endpoint)
                     )
-        new_entities = [
-            e for e in entities if e.event_types and e.unique_id not in added
-        ]
+        entities = [e for e in entities if e.event_types]
+        per_device = Counter(
+            (type(e), e.device_entry.id) for e in entities if e.device_entry
+        )
+        new_entities = [e for e in entities if e.unique_id not in added]
+        for e in new_entities:
+            if e.device_entry and per_device[type(e), e.device_entry.id] == 1:
+                e.use_single_name()
         added.update(e.unique_id for e in new_entities)
         if new_entities:
             async_add_entities(new_entities)
@@ -219,6 +225,11 @@ class MatterSwitchEventEntity(EventEntity):
         self._node_id = node_id
         self._endpoint_ids = endpoint_ids
         self._last_event_number: int | None = None
+
+    def use_single_name(self) -> None:
+        """Drop the number from the name, for the only entity of its kind."""
+        self._attr_translation_key = f"{self._attr_translation_key}_single"
+        self._attr_translation_placeholders = {}
 
     async def async_added_to_hass(self) -> None:
         """Listen to the Switch events of the node."""

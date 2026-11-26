@@ -22,8 +22,39 @@
           }
         }
       },
+      "button_single": {
+        "name": "Press",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "initial_press": "Pressed",
+              "switch_latched": "Switch latched"
+            }
+          }
+        }
+      },
       "rotary": {
         "name": "Rotation {layer}",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "rotation": "Rotation"
+            }
+          },
+          "direction": {
+            "name": "Direction",
+            "state": {
+              "clockwise": "Clockwise",
+              "counter_clockwise": "Counter-clockwise"
+            }
+          },
+          "steps": {
+            "name": "Steps"
+          }
+        }
+      },
+      "rotary_single": {
+        "name": "Rotation",
         "state_attributes": {
           "event_type": {
             "state": {
