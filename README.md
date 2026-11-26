@@ -1,4 +1,10 @@
+<img src="custom_components/matter_events/brand/icon@2x.png" alt="" width="96">
+
 # Matter Events
+
+[![GitHub release](https://img.shields.io/github/v/release/piitaya/ha-matter-events)](https://github.com/piitaya/ha-matter-events/releases)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://hacs.xyz/docs/faq/custom_repositories)
+[![License](https://img.shields.io/github/license/piitaya/ha-matter-events)](LICENSE)
 
 Better event entities for Matter remotes and scroll wheels, such as the IKEA BILRESA.
 
