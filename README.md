@@ -24,9 +24,14 @@ The scroll wheel endpoints are found from their semantic tags, as the IKEA BILRE
 
 Requires Home Assistant 2026.12 or later with the Matter integration set up.
 
-1. In HACS, add `https://github.com/piitaya/ha-matter-events` as a custom repository of type Integration, then install **Matter Events**.
+1. Add this repository to the Marketplace and install **Matter Events**:
+
+   [![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=piitaya&repository=ha-matter-events&category=integration)
+
 2. Restart Home Assistant.
-3. Go to **Settings > Devices & services > Add integration** and pick **Matter Events**.
+3. Add the integration:
+
+   [![Open your Home Assistant instance and start setting up Matter Events.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=matter_events)
 
 The entities are added to the devices of the Matter integration, also for devices added later.
 
