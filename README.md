@@ -35,6 +35,30 @@ Requires Home Assistant 2026.12 or later with the Matter integration set up.
 
 The entities are added to the devices of the Matter integration, also for devices added later.
 
+## Example
+
+Dim a light with the first layer of a scroll wheel, 5 % per detent:
+
+```yaml
+alias: Dim the living room light with the scroll wheel
+triggers:
+  - trigger: event.received
+    target:
+      entity_id: event.scroll_wheel_rotation_1
+    options:
+      event_type:
+        - rotation
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.living_room
+    data:
+      brightness_step_pct: >-
+        {{ trigger.to_state.attributes.steps
+           * (5 if trigger.to_state.attributes.direction == 'clockwise' else -5) }}
+mode: parallel
+```
+
 ## Limits
 
 - The integration uses internal helpers of the Matter integration of Core, which can change in any release.
